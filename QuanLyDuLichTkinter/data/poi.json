@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "name": "Hồ Hoàn Kiếm",
+    "lat": 21.0285,
+    "lon": 105.8542,
+    "open_hour": 6,
+    "close_hour": 22,
+    "price": 0
+  },
+  {
+    "id": 2,
+    "name": "Văn Miếu Quốc Tử Giám",
+    "lat": 21.0288,
+    "lon": 105.8354,
+    "open_hour": 8,
+    "close_hour": 17,
+    "price": 30000
+  },
+  {
+    "id": 3,
+    "name": "Lăng Bác",
+    "lat": 21.0379,
+    "lon": 105.8343,
+    "open_hour": 7,
+    "close_hour": 17,
+    "price": 0
+  },
+  {
+    "id": 4,
+    "name": "Chùa Một Cột",
+    "lat": 21.0358,
+    "lon": 105.8340,
+    "open_hour": 7,
+    "close_hour": 18,
+    "price": 0
+  },
+  {
+    "id": 5,
+    "name": "Hoàng Thành Thăng Long",
+    "lat": 21.0353,
+    "lon": 105.8401,
+    "open_hour": 8,
+    "close_hour": 17,
+    "price": 30000
+  }
+]
+

@@ -3,6 +3,7 @@ import os
 import hashlib
 import sqlite3
 import sys
+import datetime
 
 def get_data_dir():
     if getattr(sys, 'frozen', False):

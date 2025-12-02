@@ -353,7 +353,7 @@ class TravelApp:
             ctk.CTkButton(
                 btn_frame, text="👁️ " + LANG[self.language]["quick_view"], width=100,
                 fg_color="#e8f0fe", hover_color="#b2bec3", text_color="#333",
-                corner_radius=10, command=lambda i=idx: self.show_trip_detail(i)
+                corner_radius=10, command=lambda t=trip: self.show_trip_detail(t)
             ).pack(side=LEFT, padx=5)
             ctk.CTkButton(
                 btn_frame, text="🛫 " + LANG[self.language]["book_trip"], width=100,
@@ -474,13 +474,37 @@ class TravelApp:
             else:
                 messagebox.showerror(LANG[self.language]["error"], LANG[self.language]["no_permission_delete"], parent=self.master)
 
-    def show_trip_detail(self, idx):
-        # Hiển thị popup chi tiết chuyến đi
-        # Lấy lại dữ liệu mới nhất kèm timeline
-        trips = get_trips_with_timeline_by_user(self.username, self.role)
-        if not (0 <= idx < len(trips)): return
+    def show_trip_detail(self, idx_or_trip):
+        """
+        Hiển thị popup chi tiết chuyến đi.
+        Tham số có thể là:
+         - int: index theo danh sách gốc (giữ tương thích ngược)
+         - dict: trực tiếp object chuyến đi (khuyến nghị)
+        Hàm đảm bảo lấy được 'timeline' (nếu thiếu sẽ cố tìm trong dữ liệu có timeline).
+        """
+        # Nếu gọi bằng object trip thì dùng luôn
+        if isinstance(idx_or_trip, dict):
+            trip = idx_or_trip
+        else:
+            # legacy: nếu truyền index, lấy từ danh sách có timeline
+            trips = get_trips_with_timeline_by_user(self.username, self.role)
+            if not (0 <= idx_or_trip < len(trips)):
+                return
+            trip = trips[idx_or_trip]
 
-        trip = trips[idx]
+        # Nếu trip chưa có timeline, cố tìm bản tương ứng trong danh sách có timeline
+        if 'timeline' not in trip or trip.get('timeline') is None:
+            try:
+                trips_with_tl = get_trips_with_timeline_by_user(self.username, self.role)
+                for t in trips_with_tl:
+                    if t.get('name') == trip.get('name') and t.get('location') == trip.get('location'):
+                        trip['timeline'] = t.get('timeline', [])
+                        break
+                else:
+                    trip.setdefault('timeline', [])
+            except Exception:
+                trip.setdefault('timeline', [])
+
         detail = ctk.CTkToplevel(self.master)
         detail.title(f"{LANG[self.language]['detail']} - {trip.get('name', '')}")
         detail.geometry("520x700")
@@ -493,7 +517,7 @@ class TravelApp:
         img_label = ctk.CTkLabel(detail, text="🖼️", width=420, height=220, fg_color="#eee")
         if img_path and os.path.exists(img_path):
             try:
-                img = Image.open(img_path).resize((480, 250)) # Ảnh to hơn
+                img = Image.open(img_path).resize((480, 250))
                 img_tk = ImageTk.PhotoImage(img)
                 img_label.configure(image=img_tk, text="")
                 img_label.image = img_tk
@@ -670,7 +694,7 @@ class TravelApp:
                 # Chế độ Sửa
                 if update_trip(edit_index, data, self.username, self.role):
                     # Lưu timeline riêng biệt có vẻ không cần thiết nếu đã gộp vào data
-                    # save_timeline(edit_index, timeline, self.username, self.role)
+                    # save_timeline(edit_index, timeline, self.username, selfrole)
                     messagebox.showinfo(LANG[self.language]["success"], LANG[self.language]["update_success"], parent=popup)
                     success = True
                 else:
@@ -689,10 +713,7 @@ class TravelApp:
                 popup.destroy()
                 self.show_trip_cards() # Refresh danh sách
 
-        ctk.CTkButton(popup, text="💾 " + LANG[self.language]["save"], command=save_trip_func, width=180, height=40, font=("Arial", 14, "bold"), fg_color="#27ae60", hover_color="#2ecc71").pack(pady=20)
-
     
-
 
     def select_dates_popup(self, time_var):
         # Mở popup chọn ngày bắt đầu và kết thúc

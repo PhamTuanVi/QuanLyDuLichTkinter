@@ -13,7 +13,8 @@
     <Name>APP</Name>
     <RootNamespace>QuanLyDuLichTkinter</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
-    <InterpreterId>Global|PythonCore|3.12</InterpreterId>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,12 +33,14 @@
     <Compile Include="optimizer\test_ga.py" />
     <Compile Include="optimizer\tsp_solver.py" />
     <Compile Include="optimizer\__init__.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterpreterReference Include="Global|PythonCore|3.12" />
+    <Compile Include="ui\login_window.py" />
+    <Compile Include="ui\suggestion_popup.py" />
+    <Compile Include="ui\timeline_editor.py" />
+    <Compile Include="ui\travel_app.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\" />
+    <Folder Include="ui\" />
     <Folder Include="optimizer\" />
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +48,17 @@
     <Content Include="data\poi.json" />
     <Content Include="data\QLDL.json" />
     <Content Include="data\QLDL_timelines.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.12</Version>
+      <Description>env (Python 3.12 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

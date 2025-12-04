@@ -12,6 +12,36 @@
                 "activities": [
                     "ASa"
                 ]
+            },
+            {
+                "date": "2025-06-04",
+                "activities": [
+                    "asdasd"
+                ]
+            },
+            {
+                "date": "2025-06-05",
+                "activities": []
+            },
+            {
+                "date": "2025-06-06",
+                "activities": []
+            },
+            {
+                "date": "2025-06-07",
+                "activities": []
+            },
+            {
+                "date": "2025-06-08",
+                "activities": []
+            },
+            {
+                "date": "2025-06-09",
+                "activities": []
+            },
+            {
+                "date": "2025-06-10",
+                "activities": []
             }
         ],
         "created_by": "admin",

@@ -190,5 +190,26 @@
                 "lon": 106.3333
             }
         ]
+    },
+    {
+        "id": 6,
+        "username": "admin",
+        "trip_name": "Chinh phục Fansipan",
+        "customer_name": "11",
+        "email": "11",
+        "qty": 1,
+        "status": "pending",
+        "created_at": "2025-12-04T08:59:44",
+        "details": [
+            {
+                "name": "Chinh phục Fansipan",
+                "location": "Lào Cai",
+                "time": "2025-06-03 đến 2025-06-10",
+                "price": 5000000.0,
+                "category": "mountain",
+                "lat": 22.3386,
+                "lon": 103.7744
+            }
+        ]
     }
 ]

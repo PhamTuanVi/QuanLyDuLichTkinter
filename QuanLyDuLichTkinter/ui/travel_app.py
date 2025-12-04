@@ -10,7 +10,7 @@ import numpy as np
 from database import (
     init_db, get_accounts, save_accounts, add_account, verify_account,
     save_trip, get_all_trips, get_trips_by_user, delete_trip, update_trip,
-    save_timeline, get_trips_with_timeline_by_user,  # Sử dụng hàm này thay vì load_pois
+    save_timeline, get_trips_with_timeline_by_user,
     save_booking_to_db, get_bookings_by_user, get_all_bookings,
     update_booking_status, delete_booking,
     add_notification, get_notifications, mark_notifications_read
@@ -504,35 +504,52 @@ class TravelApp:
             )
 
     def show_timeline(self, timeline, parent):
-        # Hiển thị đầy đủ timeline trong popup chi tiết
-        if parent is None: return
+        if parent is None:
+            return
 
-        # Xóa timeline cũ nếu có
+        # Xóa timeline cũ
         for widget in parent.winfo_children():
             if isinstance(widget, ctk.CTkScrollableFrame) and hasattr(widget, "is_timeline_frame"):
-                 widget.destroy()
+                widget.destroy()
 
         scroll_frame = ctk.CTkScrollableFrame(parent, fg_color="#fff", corner_radius=10, height=350)
         scroll_frame.pack(pady=10, fill=BOTH, expand=True, padx=20)
-        setattr(scroll_frame, "is_timeline_frame", True) # Đánh dấu để xóa sau
+        setattr(scroll_frame, "is_timeline_frame", True)
 
         if not timeline:
-            ctk.CTkLabel(scroll_frame, text=LANG[self.language]["no_timeline"], text_color="#888").pack(pady=20)
+            ctk.CTkLabel(
+                scroll_frame,
+                text=LANG[self.language]["no_timeline"],
+                text_color="#888"
+            ).pack(pady=20)
         else:
             for day_data in timeline:
                 day_str = day_data.get("date", "N/A")
-                ctk.CTkLabel(scroll_frame, text=f"🗓️ {LANG[self.language]['day']}: {day_str}", font=("Arial", 12, "bold"), text_color="#2980b9").pack(anchor="w", padx=10, pady=(10, 2))
+                ctk.CTkLabel(
+                    scroll_frame,
+                    text=f"🗓️ {LANG[self.language]['day']}: {day_str}",
+                    font=("Arial", 12, "bold"),
+                    text_color="#2980b9"
+                ).pack(anchor="w", padx=10, pady=(10, 2))
+
                 activities = day_data.get("activities", [])
                 if activities:
                     for act in activities:
-                        ctk.CTkLabel(scroll_frame, text=f"  • {act}", text_color="#555", justify="left", wraplength=450).pack(anchor="w", padx=25, pady=1)
+                        ctk.CTkLabel(
+                            scroll_frame,
+                            text=f"  • {act}",
+                            text_color="#555",
+                            justify="left",
+                            wraplength=450
+                        ).pack(anchor="w", padx=25, pady=1)
                 else:
-                     ctk.CTkLabel(
+                    ctk.CTkLabel(
                         scroll_frame,
                         text="  " + LANG[self.language]["no_activity_in_day"],
                         text_color="#888",
                         font=("Arial", 11, "italic")
-                    ).pack(...)
+                    ).pack(anchor="w", padx=25, pady=1)
+
 
     # --- Các hàm xử lý sự kiện nút ---
 
@@ -608,34 +625,37 @@ class TravelApp:
     def show_trip_detail(self, idx_or_trip):
         """
         Hiển thị popup chi tiết chuyến đi.
-        Tham số có thể là:
-         - int: index theo danh sách gốc (giữ tương thích ngược)
-         - dict: trực tiếp object chuyến đi (khuyến nghị)
-        Hàm đảm bảo lấy được 'timeline' (nếu thiếu sẽ cố tìm trong dữ liệu có timeline).
+        - idx_or_trip có thể là:
+            + dict: object chuyến đi (từ current_trips / show_trip_cards)
+            + int : index trong danh sách (legacy)
         """
-        # Nếu gọi bằng object trip thì dùng luôn
+
+        # --- 1. Lấy trip ra ---
         if isinstance(idx_or_trip, dict):
+            # Gọi bằng object trip -> dùng luôn
             trip = idx_or_trip
         else:
-            # legacy: nếu truyền index, lấy từ danh sách có timeline
+            # Gọi bằng index -> lấy từ danh sách có timeline
             trips = get_trips_with_timeline_by_user(self.username, self.role)
-            if not (0 <= idx_or_trip < len(trips)):
+
+            # Bảo vệ: phải là int và nằm trong range
+            if not isinstance(idx_or_trip, int) or not (0 <= idx_or_trip < len(trips)):
                 return
+
             trip = trips[idx_or_trip]
 
-        # Nếu trip chưa có timeline, cố tìm bản tương ứng trong danh sách có timeline
-        if 'timeline' not in trip or trip.get('timeline') is None:
-            try:
-                trips_with_tl = get_trips_with_timeline_by_user(self.username, self.role)
-                for t in trips_with_tl:
-                    if t.get('name') == trip.get('name') and t.get('location') == trip.get('location'):
-                        trip['timeline'] = t.get('timeline', [])
-                        break
-                else:
-                    trip.setdefault('timeline', [])
-            except Exception:
-                trip.setdefault('timeline', [])
+        # --- 2. Chuẩn hoá field timeline ---
+        if "timeline" in trip and isinstance(trip["timeline"], list):
+            timeline = trip["timeline"]
+        elif "timeLine" in trip and isinstance(trip["timeLine"], list):
+            # JSON cũ dùng key "timeLine" -> đổi sang "timeline"
+            timeline = trip["timeLine"]
+            trip["timeline"] = timeline
+        else:
+            timeline = []
+            trip["timeline"] = timeline
 
+        # --- 3. Tạo popup chi tiết như cũ ---
         detail = ctk.CTkToplevel(self.master)
         detail.title(f"{LANG[self.language]['detail']} - {trip.get('name', '')}")
         detail.geometry("520x700")
@@ -643,7 +663,7 @@ class TravelApp:
         detail.lift()
         detail.attributes("-topmost", True)
 
-        # Hiển thị ảnh lớn
+        # Ảnh lớn
         img_path = trip.get("image", "")
         img_label = ctk.CTkLabel(detail, text="🖼️", width=420, height=220, fg_color="#eee")
         if img_path and os.path.exists(img_path):
@@ -656,22 +676,42 @@ class TravelApp:
                 print(f"Lỗi load ảnh chi tiết {img_path}: {e}")
         img_label.pack(pady=12)
 
-        # Hiển thị category
-        category = trip.get('category','mountain')
-        ctk.CTkLabel(detail, text=f"{CATEGORY_ICONS[category]} {LANG[self.language][category]}", font=("Arial", 16, "bold"),
-                       fg_color=CATEGORY_COLORS.get(category, "#fff"), text_color=CATEGORY_TEXT_COLORS.get(category, "#fff"),
-                       corner_radius=10, width=180).pack(pady=10)
+        # Category
+        category = trip.get('category', 'mountain')
+        ctk.CTkLabel(
+            detail,
+            text=f"{CATEGORY_ICONS[category]} {LANG[self.language][category]}",
+            font=("Arial", 16, "bold"),
+            fg_color=CATEGORY_COLORS.get(category, "#fff"),
+            text_color=CATEGORY_TEXT_COLORS.get(category, "#fff"),
+            corner_radius=10,
+            width=180
+        ).pack(pady=10)
 
         # Thông tin cơ bản
-        ctk.CTkLabel(detail, text=f"{LANG[self.language]['trip_name']} {trip.get('name','')}", font=("Arial", 18, "bold")).pack(pady=6)
-        ctk.CTkLabel(detail, text=f"📍 {LANG[self.language]['trip_location']} {trip.get('location','')}", font=("Arial", 14)).pack()
-        ctk.CTkLabel(detail, text=f"📅 {LANG[self.language]['trip_time']} {trip.get('time','')}", font=("Arial", 14)).pack()
-        ctk.CTkLabel(detail, text=f"💰 {LANG[self.language]['trip_budget']} {self.format_currency(trip.get('price',''))}", font=("Arial", 14)).pack()
+        ctk.CTkLabel(detail,
+                     text=f"{LANG[self.language]['trip_name']} {trip.get('name','')}",
+                     font=("Arial", 18, "bold")).pack(pady=6)
+        ctk.CTkLabel(detail,
+                     text=f"📍 {LANG[self.language]['trip_location']} {trip.get('location','')}",
+                     font=("Arial", 14)).pack()
+        ctk.CTkLabel(detail,
+                     text=f"📅 {LANG[self.language]['trip_time']} {trip.get('time','')}",
+                     font=("Arial", 14)).pack()
+        ctk.CTkLabel(detail,
+                     text=f"💰 {LANG[self.language]['trip_budget']} {self.format_currency(trip.get('price',''))}",
+                     font=("Arial", 14)).pack()
 
-        # Hiển thị timeline đầy đủ
-        self.show_timeline(trip.get("timeline", []), parent=detail)
+        # --- 4. Hiển thị timeline ---
+        self.show_timeline(timeline, parent=detail)
 
-        ctk.CTkButton(detail, text=LANG[self.language]["close"], command=detail.destroy, width=120).pack(pady=20)
+        ctk.CTkButton(
+            detail,
+            text=LANG[self.language]["close"],
+            command=detail.destroy,
+            width=120
+        ).pack(pady=20)
+
 
     def open_add_trip_popup(self, edit_data=None, edit_index=None):
         # Mở popup để thêm hoặc sửa chuyến đi
@@ -779,17 +819,7 @@ class TravelApp:
             cat_buttons_in_popup[cat_key] = btn
         update_cat_selection_in_popup() # Cập nhật màu ban đầu
 
-        # Nút chỉnh sửa Timeline
-        def open_timeline_editor():
-            if not time.get():
-                messagebox.showerror(LANG[self.language]["error"],
-                     LANG[self.language]["need_date_before_timeline"],
-                     parent=popup)
-                return
-            # Truyền bản copy của timeline vào editor
-            self.timeline_editor_popup(list(timeline), time, lambda new_timeline: timeline.clear() or timeline.extend(new_timeline))
-        ctk.CTkButton(form, text="🕒 " + LANG[self.language]["edit_timeline"], command=open_timeline_editor, width=150, fg_color="#9b59b6", hover_color="#8e44ad").grid(row=5, column=0, columnspan=3, pady=15)
-
+        
         # --- Nút Lưu ---
         def save_trip_func():
             # Validate input
@@ -848,16 +878,54 @@ class TravelApp:
                 popup.destroy()
                 self.show_trip_cards() # Refresh danh sách
 
-                # --- Nút Lưu ---
+                     # Nút chỉnh sửa Timeline
+        def open_timeline_editor():
+            if not time.get().strip():
+                messagebox.showerror(
+                    LANG[self.language]["error"],
+                    LANG[self.language]["need_date_before_timeline"],
+                    parent=popup
+                )
+                return
+
+            # Gọi popup chỉnh sửa timeline (method của class)
+            self.timeline_editor_popup(
+                list(timeline),          # copy timeline hiện tại
+                time,                    # StringVar "YYYY-MM-DD đến YYYY-MM-DD"
+                lambda new_tl: (         # callback khi bấm Lưu trong popup
+                    timeline.clear(),
+                    timeline.extend(new_tl),
+                    print("Timeline updated:", timeline)
+                )
+            )
+
+        ctk.CTkButton(
+            form,
+            text="🕒 " + LANG[self.language]["edit_timeline"],
+            command=open_timeline_editor,
+            width=150,
+            fg_color="#9b59b6",
+            hover_color="#8e44ad"
+        ).grid(row=5, column=0, columnspan=3, pady=15)
+
+        # --- Nút Lưu chuyến đi ---
         def save_trip_func():
             # Validate input
             if not all([name.get(), time.get(), location.get(), price.get()]):
-                messagebox.showerror(LANG[self.language]["error"], LANG[self.language]["fill_all"], parent=popup)
+                messagebox.showerror(
+                    LANG[self.language]["error"],
+                    LANG[self.language]["fill_all"],
+                    parent=popup
+                )
                 return
             try:
                 price_value = float(price.get())
             except ValueError:
-                messagebox.showerror(LANG[self.language]["error"], "Giá tiền phải là một con số!", parent=popup)
+                messagebox.showerror(
+                    LANG[self.language]["error"],
+                    LANG[self.language]["price_must_be_number"],
+                    parent=popup
+                )
                 return
 
             # Đổi về VNĐ nếu đang nhập USD
@@ -883,21 +951,32 @@ class TravelApp:
             if edit_index is not None:
                 # Sửa
                 if update_trip(edit_index, data, self.username, self.role):
-                    messagebox.showinfo(LANG[self.language]["success"], LANG[self.language]["update_success"], parent=popup)
+                    messagebox.showinfo(
+                        LANG[self.language]["success"],
+                        LANG[self.language]["update_success"],
+                        parent=popup
+                    )
                     success = True
                 else:
-                    messagebox.showerror(LANG[self.language]["error"], LANG[self.language]["no_permission_edit"], parent=popup)
+                    messagebox.showerror(
+                        LANG[self.language]["error"],
+                        LANG[self.language]["no_permission_edit"],
+                        parent=popup
+                    )
             else:
                 # Thêm mới
                 save_trip(data, self.username)
-                messagebox.showinfo(LANG[self.language]["success"], LANG[self.language]["add_success"], parent=popup)
+                messagebox.showinfo(
+                    LANG[self.language]["success"],
+                    LANG[self.language]["add_success"],
+                    parent=popup
+                )
                 success = True
 
             if success:
                 popup.destroy()
                 self.show_trip_cards()
 
-        # 🔹 NÚT LƯU (THÊM ĐOẠN NÀY)
         btn_text = "💾 " + LANG[self.language]["save"]
         ctk.CTkButton(
             popup,
@@ -909,9 +988,115 @@ class TravelApp:
             font=("Arial", 14, "bold"),
             width=200
         ).pack(pady=20)
+    def timeline_editor_popup(self, timeline, time_var, on_save):
+            """
+            Popup chỉnh sửa timeline cho 1 chuyến đi.
+            - timeline: list[{"date": "YYYY-MM-DD", "activities": [..]}]
+            - time_var: StringVar chứa "YYYY-MM-DD đến YYYY-MM-DD" hoặc "YYYY-MM-DD to YYYY-MM-DD"
+            - on_save: callback(new_timeline) để trả kết quả về popup cha
+            """
+            # Lấy ngày bắt đầu / kết thúc từ time_var
+            time_text = time_var.get()
+            if "đến" in time_text:
+                start_str, end_str = [s.strip() for s in time_text.split("đến", 1)]
+            elif "to" in time_text:
+                start_str, end_str = [s.strip() for s in time_text.split("to", 1)]
+            else:
+                messagebox.showerror(
+                    LANG[self.language]["error"],
+                    LANG[self.language]["invalid_date"],
+                    parent=self.master
+                )
+                return
 
+            try:
+                start_date = datetime.strptime(start_str, "%Y-%m-%d")
+                end_date   = datetime.strptime(end_str, "%Y-%m-%d")
+            except ValueError:
+                messagebox.showerror(
+                    LANG[self.language]["error"],
+                    LANG[self.language]["invalid_date"],
+                    parent=self.master
+                )
+                return
 
-    
+            # Tạo list ngày liên tục
+            days = []
+            cur = start_date
+            while cur <= end_date:
+                days.append(cur.strftime("%Y-%m-%d"))
+                cur += timedelta(days=1)
+
+            # Map ngày -> activities từ timeline cũ
+            old_map = {d.get("date"): d.get("activities", []) for d in timeline}
+
+            # Tạo popup
+            popup = ctk.CTkToplevel(self.master)
+            popup.title(LANG[self.language]["timeline"])
+            popup.geometry("600x600")
+            popup.grab_set()
+            popup.lift()
+            popup.attributes("-topmost", True)
+
+            ctk.CTkLabel(
+                popup,
+                text=LANG[self.language]["edit_timeline"],
+                font=("Arial", 18, "bold")
+            ).pack(pady=10)
+
+            frame = ctk.CTkScrollableFrame(popup, fg_color="#f5f7fa")
+            frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+            # Lưu (date_str, textbox) để lúc Save đọc lại
+            day_widgets = []
+
+            for d_str in days:
+                day_card = ctk.CTkFrame(frame, fg_color="#ffffff", corner_radius=10)
+                day_card.pack(fill="x", pady=5, padx=5)
+
+                ctk.CTkLabel(
+                    day_card,
+                    text=f"🗓 {LANG[self.language]['day']}: {d_str}",
+                    font=("Arial", 13, "bold"),
+                    anchor="w"
+                ).pack(fill="x", padx=8, pady=(6, 2))
+
+                txt = ctk.CTkTextbox(day_card, height=80)
+                txt.pack(fill="x", padx=8, pady=(0, 8))
+
+                acts = old_map.get(d_str, [])
+                if acts:
+                    txt.insert("1.0", "\n".join(acts))
+
+                day_widgets.append((d_str, txt))
+
+            def do_save():
+                new_timeline = []
+                for date_str, txt in day_widgets:
+                    raw = txt.get("1.0", "end").strip()
+                    if not raw:
+                        new_timeline.append({"date": date_str, "activities": []})
+                        continue
+
+                    acts = [line.strip() for line in raw.splitlines() if line.strip()]
+                    new_timeline.append({"date": date_str, "activities": acts})
+
+                # Trả dữ liệu ra ngoài
+                on_save(new_timeline)
+                popup.destroy()
+
+            ctk.CTkButton(
+                popup,
+                text="💾 " + LANG[self.language]["save_timeline"],
+                command=do_save,
+                fg_color="#27ae60",
+                hover_color="#2ecc71",
+                width=200,
+                height=40,
+                font=("Arial", 14, "bold")
+            ).pack(pady=12)
+
+        
 
     def select_dates_popup(self, time_var):
         # Mở popup chọn ngày bắt đầu và kết thúc
@@ -1752,7 +1937,7 @@ class TravelApp:
                  ctk.CTkLabel(result_frame, text=LANG[self.language]["budget_warning"],
                          font=("Arial", 14, "bold"), text_color="#e74c3c").pack(pady=10, anchor="w", padx=20)
 
-            ctk.CTkLabel(result_frame, text=ANG[self.language]["distance_note"],
+            ctk.CTkLabel(result_frame, text=LANG[self.language]["distance_note"],
                          font=("Arial", 10, "italic"), text_color="#7f8c8d").pack(pady=10, anchor="w", padx=20)
 
         except IndexError as e:

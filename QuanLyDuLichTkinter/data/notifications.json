@@ -118,5 +118,11 @@
         "message": "Vé của bạn đã được xác nhận.",
         "read": false,
         "timestamp": "2025-12-04T08:33:54.545767"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé cho Chinh phục Fansipan (1 địa điểm).",
+        "read": false,
+        "timestamp": "2025-12-04T08:59:44.406669"
     }
 ]

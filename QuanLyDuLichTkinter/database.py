@@ -211,19 +211,48 @@ def save_json(path, data):
             json.dump(data, f, ensure_ascii=False, indent=4)
 
 def get_trips_with_timeline_by_user(username=None, role=None):
-    # Lấy danh sách chuyến đi kèm theo lịch trình của chúng
+    """
+    Lấy danh sách chuyến đi kèm lịch trình.
+    Ưu tiên lấy timeline theo thứ tự:
+        1. Nếu trip có 'timeline' -> dùng
+        2. Nếu trip có 'timeLine' -> đổi tên sang 'timeline'
+        3. Nếu không có, tìm trong file QLDL_timelines.json (theo index)
+        4. Nếu vẫn không có -> để []
+    """
+
     trips = get_trips_by_user(username, role)
+
+    # Load timelines từ file QLDL_timelines.json
     timelines = {}
     if os.path.exists(TIMELINE_PATH):
         try:
-            with open(TIMELINE_PATH, 'r', encoding='utf8') as f:
+            with open(TIMELINE_PATH, "r", encoding="utf8") as f:
                 timelines = json.load(f)
         except (json.JSONDecodeError, FileNotFoundError):
             timelines = {}
 
+    # Gộp timeline vào từng trip
     for idx, trip in enumerate(trips):
-        trip['timeline'] = timelines.get(str(idx), []) # Lấy timeline theo index
+
+        # --- CASE 1: Trip đã có timeline đúng dạng
+        if "timeline" in trip and isinstance(trip["timeline"], list):
+            continue
+
+        # --- CASE 2: Trip dùng key "timeLine" (sai chuẩn)
+        if "timeLine" in trip and isinstance(trip["timeLine"], list):
+            trip["timeline"] = trip["timeLine"]
+            continue
+
+        # --- CASE 3: Tìm timeline trong file QLDL_timelines.json
+        if str(idx) in timelines:
+            trip["timeline"] = timelines[str(idx)]
+            continue
+
+        # --- CASE 4: Không tìm thấy -> đặt rỗng
+        trip["timeline"] = []
+
     return trips
+
 
 # --- Phần database SQLite cho Booking ---
 

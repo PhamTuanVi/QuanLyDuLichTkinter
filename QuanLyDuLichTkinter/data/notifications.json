@@ -1,0 +1,98 @@
+[
+    {
+        "username": "admin",
+        "message": "User 'user1' đặt 1 vé chuyến 'Chinh phục Fansipan' (Batch).",
+        "read": false,
+        "timestamp": "2025-12-04T06:19:07.891617"
+    },
+    {
+        "username": "Chinh phục Fansipan",
+        "message": "Vé của bạn đã bị từ chối.",
+        "read": false,
+        "timestamp": "2025-12-04T06:21:26.935518"
+    },
+    {
+        "username": "Bali",
+        "message": "Vé của bạn đã được xác nhận.",
+        "read": false,
+        "timestamp": "2025-12-04T06:21:37.552633"
+    },
+    {
+        "username": "Tri Tôn",
+        "message": "Vé của bạn đã được xác nhận.",
+        "read": false,
+        "timestamp": "2025-12-04T06:21:49.416415"
+    },
+    {
+        "username": "Tri Tôn",
+        "message": "Vé của bạn đã bị từ chối.",
+        "read": false,
+        "timestamp": "2025-12-04T06:21:51.734021"
+    },
+    {
+        "username": "Tri Tôn",
+        "message": "Vé của bạn đã bị từ chối.",
+        "read": false,
+        "timestamp": "2025-12-04T06:21:55.997816"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé chuyến 'Chinh phục Fansipan' (Batch).",
+        "read": false,
+        "timestamp": "2025-12-04T07:31:28.208424"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé chuyến 'Trekking Tà Năng' (Batch).",
+        "read": false,
+        "timestamp": "2025-12-04T07:31:28.223640"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé chuyến 'Khám phá Cúc Phương' (Batch).",
+        "read": false,
+        "timestamp": "2025-12-04T07:31:28.235765"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé chuyến 'Thám hiểm rừng U Minh' (Batch).",
+        "read": false,
+        "timestamp": "2025-12-04T07:31:28.249379"
+    },
+    {
+        "username": "Chinh phục Fansipan",
+        "message": "Vé của bạn đã được xác nhận.",
+        "read": false,
+        "timestamp": "2025-12-04T07:31:40.364454"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé chuyến 'Chinh phục Fansipan' (Batch).",
+        "read": false,
+        "timestamp": "2025-12-04T08:16:41.507653"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé chuyến 'Trekking Tà Năng' (Batch).",
+        "read": false,
+        "timestamp": "2025-12-04T08:16:41.544902"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé chuyến 'Khám phá Cúc Phương' (Batch).",
+        "read": false,
+        "timestamp": "2025-12-04T08:16:41.571025"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé chuyến 'Di tích địa đạo Củ Chi' (Batch).",
+        "read": false,
+        "timestamp": "2025-12-04T08:16:41.592871"
+    },
+    {
+        "username": "admin",
+        "message": "User 'admin' đặt 1 vé cho Tour 4 địa điểm (4 địa điểm).",
+        "read": false,
+        "timestamp": "2025-12-04T08:26:27.919612"
+    }
+]

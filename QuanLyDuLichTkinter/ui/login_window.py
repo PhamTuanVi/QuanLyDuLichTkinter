@@ -1,4 +1,5 @@
 ﻿import customtkinter as ctk
+import tkinter.ttk as ttk
 from tkinter import messagebox
 from ui.travel_app import TravelApp
 from tkinter import messagebox, filedialog, LEFT, RIGHT, Y, X, BOTH

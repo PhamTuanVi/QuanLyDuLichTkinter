@@ -66,6 +66,67 @@ LANG = {
         "category": "Loại hình", "choose_category": "Chọn loại hình", "day": "Ngày",
         "activity": "Hoạt động", "add_activity": "Thêm hoạt động", "remove_activity": "Xóa hoạt động",
         "save_timeline": "Lưu lịch trình", "no_timeline": "Chưa có lịch trình",
+        "app_title": "Quản Lý Du Lịch",
+        "no_trip_to_edit": "Không có chuyến đi nào để sửa!",
+        "no_trip_to_delete": "Không có chuyến đi nào để xóa!",
+        "no_activity_in_day": "(Chưa có hoạt động)",
+        "need_date_before_timeline": "Vui lòng chọn ngày trước khi sửa lịch trình!",
+        "price_must_be_number": "Giá tiền phải là một con số!",
+        "end_date_before_start": "Ngày kết thúc không được trước ngày bắt đầu!",
+        "unknown_error": "Lỗi không xác định: {e}",
+        "choose_avatar": "Chọn ảnh đại diện",
+        "avatar_error_title": "Lỗi Ảnh",
+        "avatar_error_message": "Không thể tải ảnh đại diện: {e}",
+        "customer_info_title": "Thông tin khách hàng:",
+        "full_name_label": "Họ tên:",
+        "email_label": "Email:",
+        "choose_trips_to_book": "Chọn các chuyến đi muốn đặt:",
+        "no_trips_available": "Không có chuyến đi nào khả dụng!",
+        "col_select": "Chọn",
+        "col_trip_name": "Tên chuyến đi",
+        "col_quantity": "Số lượng",
+        "must_enter_name_email": "Vui lòng nhập Tên và Email người đặt!",
+        "must_select_at_least_one_trip": "Vui lòng chọn ít nhất một chuyến đi!",
+        "bookings_title": "Vé đã đặt",
+        "bookings_list_title": "Danh sách vé đã đặt",
+        "no_bookings": "Chưa có vé nào.",
+        "label_customer": "Khách",
+        "label_quantity": "Số lượng",
+        "label_created_at": "Đặt lúc",
+        "status_approved_text": "ĐÃ XÁC NHẬN",
+        "status_rejected_text": "ĐÃ TỪ CHỐI",
+        "status_pending_text": "CHỜ XÁC NHẬN",
+        "btn_approve": "✅ Xác nhận",
+        "btn_reject": "❌ Từ chối",
+        "booking_update_success": "Cập nhật trạng thái vé thành công!",
+        "booking_update_failed": "Không thể cập nhật trạng thái vé.",
+        "suggestion_title": "Gợi ý Lộ trình Tối ưu (TSP cho Chuyến đi)",
+        "suggestion_header": "Tối ưu thứ tự Chuyến đi",
+        "suggestion_step1": "1. Chọn các chuyến đi muốn tối ưu:",
+        "suggestion_step2": "2. Nhập tổng ngân sách (VNĐ):",
+        "budget_placeholder": "Bỏ trống nếu không giới hạn",
+        "suggestion_step3": "3. Kết quả tối ưu:",
+        "suggestion_result_hint": "Chọn chuyến đi, nhập ngân sách và nhấn 'Chạy'...",
+        "suggestion_run_button": "🚀 Chạy Tối ưu",
+        "budget_must_be_number": "Ngân sách phải là một con số!",
+        "trip_list_not_found": "Không tìm thấy danh sách Chuyến đi. Vui lòng mở lại cửa sổ.",
+        "missing_lat_lon": "Chuyến đi '{name}' bị thiếu 'lat' hoặc 'lon'.",
+        "need_at_least_two_trips": "Vui lòng chọn ít nhất 2 chuyến đi để tối ưu.",
+        "building_matrix": "Đang xây dựng ma trận...",
+        "optimizing_n_trips": "Đang tối ưu {n} chuyến đi...",
+        "optimize_note": "Lưu ý: Tối ưu này chỉ dựa trên khoảng cách và giá cả,\nKHÔNG xem xét ngày đi ('time').",
+        "invalid_price_value": "Giá tiền của '{name}' không hợp lệ: '{price}'",
+        "best_route_title": "Thứ tự chuyến đi tối ưu:",
+        "back_to_start": "→ Quay lại điểm bắt đầu.",
+        "total_cost_label": "Tổng chi phí",
+        "total_distance_label": "Tổng quãng đường di chuyển",
+        "budget_warning": "⚠️ Cảnh báo: Chi phí vượt ngân sách!",
+        "distance_note": "*Quãng đường tính theo đường chim bay giữa các địa điểm.",
+        "data_error": "Lỗi Dữ Liệu",
+        "processing_data_error": "Lỗi khi chuẩn bị dữ liệu: {e}",
+        "index_error": "Lỗi Index",
+        "algorithm_error": "Lỗi Thuật toán",
+        "algorithm_error_detail": "Đã xảy ra lỗi khi chạy GA: {e}\nKiểm tra lại dữ liệu đầu vào và thuật toán.",
     },
     "en": {
         "login_title": "Login", "login_header": "LOGIN SYSTEM", "username": "Username:",
@@ -94,6 +155,67 @@ LANG = {
         "choose_category": "Choose category", "day": "Day", "activity": "Activity",
         "add_activity": "Add activity", "remove_activity": "Remove activity",
         "save_timeline": "Save timeline", "no_timeline": "No timeline yet",
+        "app_title": "Travel Manager",
+        "no_trip_to_edit": "There is no trip to edit!",
+        "no_trip_to_delete": "There is no trip to delete!",
+        "no_activity_in_day": "(No activities yet)",
+        "need_date_before_timeline": "Please choose dates before editing the timeline!",
+        "price_must_be_number": "Budget must be a number!",
+        "end_date_before_start": "End date cannot be before start date!",
+        "unknown_error": "Unknown error: {e}",
+        "choose_avatar": "Choose avatar image",
+        "avatar_error_title": "Avatar Error",
+        "avatar_error_message": "Cannot load avatar image: {e}",
+        "customer_info_title": "Customer information:",
+        "full_name_label": "Full name:",
+        "email_label": "Email:",
+        "choose_trips_to_book": "Select trips to book:",
+        "no_trips_available": "No trips available!",
+        "col_select": "Select",
+        "col_trip_name": "Trip name",
+        "col_quantity": "Quantity",
+        "must_enter_name_email": "Please enter customer's name and email!",
+        "must_select_at_least_one_trip": "Please select at least one trip!",
+        "bookings_title": "Booked Tickets",
+        "bookings_list_title": "Booked tickets list",
+        "no_bookings": "No bookings yet.",
+        "label_customer": "Customer",
+        "label_quantity": "Quantity",
+        "label_created_at": "Booked at",
+        "status_approved_text": "APPROVED",
+        "status_rejected_text": "REJECTED",
+        "status_pending_text": "PENDING",
+        "btn_approve": "✅ Approve",
+        "btn_reject": "❌ Reject",
+        "booking_update_success": "Booking status updated successfully!",
+        "booking_update_failed": "Cannot update booking status.",
+        "suggestion_title": "Optimal Route Suggestion (TSP for Trips)",
+        "suggestion_header": "Optimize trip order",
+        "suggestion_step1": "1. Choose trips to optimize:",
+        "suggestion_step2": "2. Enter total budget (VND):",
+        "budget_placeholder": "Leave empty for no limit",
+        "suggestion_step3": "3. Optimization result:",
+        "suggestion_result_hint": "Select trips, enter budget and press 'Run'...",
+        "suggestion_run_button": "🚀 Run Optimization",
+        "budget_must_be_number": "Budget must be a number!",
+        "trip_list_not_found": "Trip list not found. Please reopen the window.",
+        "missing_lat_lon": "Trip '{name}' is missing 'lat' or 'lon'.",
+        "need_at_least_two_trips": "Please select at least 2 trips to optimize.",
+        "building_matrix": "Building distance matrix...",
+        "optimizing_n_trips": "Optimizing {n} trips...",
+        "optimize_note": "Note: This optimization only uses distance and cost,\nNOT trip dates ('time').",
+        "invalid_price_value": "Invalid price for '{name}': '{price}'",
+        "best_route_title": "Optimal trip order:",
+        "back_to_start": "→ Return to starting point.",
+        "total_cost_label": "Total cost",
+        "total_distance_label": "Total travel distance",
+        "budget_warning": "⚠️ Warning: Cost exceeds budget!",
+        "distance_note": "*Distance is computed as straight-line distance between locations.",
+        "data_error": "Data Error",
+        "processing_data_error": "Error while preparing data: {e}",
+        "index_error": "Index Error",
+        "algorithm_error": "Algorithm Error",
+        "algorithm_error_detail": "An error occurred while running GA: {e}\nPlease check input data and algorithm.",
     }
 }
 CATEGORY_COLORS = {
@@ -124,7 +246,7 @@ class TravelApp:
         self.cat_buttons = {} # Dict lưu các nút category
         self.trip_selection_list = [] # Dùng cho popup gợi ý
 
-        self.master.title('Quản Lý Du Lịch')
+        self.master.title(LANG[self.language]["app_title"])
         self.master.geometry("1280x800")
         self.master.resizable(True, True)
 
@@ -405,7 +527,12 @@ class TravelApp:
                     for act in activities:
                         ctk.CTkLabel(scroll_frame, text=f"  • {act}", text_color="#555", justify="left", wraplength=450).pack(anchor="w", padx=25, pady=1)
                 else:
-                     ctk.CTkLabel(scroll_frame, text="  (Chưa có hoạt động)", text_color="#888", font=("Arial", 11, "italic")).pack(anchor="w", padx=25, pady=1)
+                     ctk.CTkLabel(
+                        scroll_frame,
+                        text="  " + LANG[self.language]["no_activity_in_day"],
+                        text_color="#888",
+                        font=("Arial", 11, "italic")
+                    ).pack(...)
 
     # --- Các hàm xử lý sự kiện nút ---
 
@@ -413,7 +540,9 @@ class TravelApp:
         # Mở popup chọn chuyến đi để sửa
         trips = get_trips_by_user(self.username, self.role)
         if not trips:
-            messagebox.showwarning(LANG[self.language]["warning"], "Không có chuyến đi nào để sửa!", parent=self.master)
+            messagebox.showwarning(LANG[self.language]["warning"],
+                           LANG[self.language]["no_trip_to_edit"],
+                           parent=self.master)
             return
 
         popup = ctk.CTkToplevel(self.master)
@@ -437,7 +566,9 @@ class TravelApp:
          # Mở popup chọn chuyến đi để xóa
         trips = get_trips_by_user(self.username, self.role)
         if not trips:
-            messagebox.showwarning(LANG[self.language]["warning"], "Không có chuyến đi nào để xóa!", parent=self.master)
+            messagebox.showwarning(LANG[self.language]["warning"],
+                           LANG[self.language]["no_trip_to_delete"],
+                           parent=self.master)
             return
 
         popup = ctk.CTkToplevel(self.master)
@@ -651,7 +782,9 @@ class TravelApp:
         # Nút chỉnh sửa Timeline
         def open_timeline_editor():
             if not time.get():
-                messagebox.showerror(LANG[self.language]["error"], "Vui lòng chọn ngày trước khi sửa lịch trình!", parent=popup)
+                messagebox.showerror(LANG[self.language]["error"],
+                     LANG[self.language]["need_date_before_timeline"],
+                     parent=popup)
                 return
             # Truyền bản copy của timeline vào editor
             self.timeline_editor_popup(list(timeline), time, lambda new_timeline: timeline.clear() or timeline.extend(new_timeline))
@@ -667,7 +800,9 @@ class TravelApp:
                 # Thử chuyển đổi giá sang số
                 price_value = float(price.get())
             except ValueError:
-                 messagebox.showerror(LANG[self.language]["error"], "Giá tiền phải là một con số!", parent=popup)
+                 messagebox.showerror(LANG[self.language]["error"],
+                     LANG[self.language]["price_must_be_number"],
+                     parent=popup)
                  return
 
             # Chuyển đổi sang VNĐ nếu cần
@@ -761,7 +896,9 @@ class TravelApp:
                 end_dt = datetime.strptime(end_date_str, "%Y-%m-%d")
 
                 if end_dt < start_dt:
-                    messagebox.showerror(LANG[self.language]["error"], "Ngày kết thúc không được trước ngày bắt đầu!", parent=date_window)
+                    messagebox.showerror(LANG[self.language]["error"],
+                     LANG[self.language]["end_date_before_start"],
+                     parent=date_window)
                     return
 
                 # Set giá trị cho time_var
@@ -771,7 +908,8 @@ class TravelApp:
             except ValueError:
                 messagebox.showerror(LANG[self.language]["error"], LANG[self.language]["invalid_date"], parent=date_window)
             except Exception as e:
-                 messagebox.showerror(LANG[self.language]["error"], f"Lỗi không xác định: {e}", parent=date_window)
+                msg = LANG[self.language]["unknown_error"].format(e=e)
+                messagebox.showerror(LANG[self.language]["error"], msg, parent=date_window)
 
 
         ctk.CTkButton(date_window, text=LANG[self.language]["ok"], command=set_dates, width=120, fg_color="#10ac84", hover_color="#1dd1a1").grid(row=2, column=0, columnspan=4, pady=20)
@@ -888,123 +1026,363 @@ class TravelApp:
 
         self.show_trip_cards() # Hiển thị lại danh sách
 
-    def open_booking_popup(self, trip_idx):
-        # Mở popup đặt vé
-        trips = get_trips_by_user(self.username, self.role)
-        if not (0 <= trip_idx < len(trips)): return
-        trip = trips[trip_idx]
 
+    def open_booking_popup(self, trip_idx=None):
+        # Mở popup đặt vé (Logic mới: Đặt nhiều vé cùng lúc)
+        trips = get_trips_by_user(self.username, self.role)
+    
+        # Tạo cửa sổ popup
         popup = ctk.CTkToplevel(self.master)
-        popup.title(LANG[self.language]["book_trip"])
-        popup.geometry("400x350")
+        popup.title(LANG[self.language].get("book_trip", "Đặt vé")) # Dùng get để tránh lỗi key
+        popup.geometry("600x650") # Tăng kích thước để chứa danh sách
         popup.grab_set()
         popup.lift()
         popup.attributes("-topmost", True)
 
+        # --- PHẦN 1: THÔNG TIN NGƯỜI ĐẶT (Dùng chung) ---
+        info_frame = ctk.CTkFrame(popup)
+        info_frame.pack(fill="x", padx=10, pady=10)
+
+        ctk.CTkLabel(info_frame, text=LANG[self.language]["customer_info_title"], font=("Arial", 14, "bold")).pack(anchor="w", padx=10, pady=5)
+    
         name_var = ctk.StringVar()
         email_var = ctk.StringVar()
-        quantity_var = ctk.StringVar(value="1")
 
-        ctk.CTkLabel(popup, text=f"{LANG[self.language]['trip_name']} {trip.get('name', '')}", font=("Arial", 14, "bold")).pack(pady=10)
-        ctk.CTkLabel(popup, text="Tên người đặt:", anchor="w").pack(fill="x", padx=20)
-        ctk.CTkEntry(popup, textvariable=name_var).pack(fill="x", padx=20, pady=5)
-        ctk.CTkLabel(popup, text="Email:", anchor="w").pack(fill="x", padx=20)
-        ctk.CTkEntry(popup, textvariable=email_var).pack(fill="x", padx=20, pady=5)
-        ctk.CTkLabel(popup, text="Số lượng vé:", anchor="w").pack(fill="x", padx=20)
-        # Combobox chọn số lượng vé
-        quantity_cb = ctk.CTkComboBox(popup, variable=quantity_var, values=[str(i) for i in range(1, 11)], state="readonly")
-        quantity_cb.pack(fill="x", padx=20, pady=5)
+        # Layout nhập Tên và Email trên cùng 1 hàng hoặc 2 dòng
+        ctk.CTkLabel(info_frame, text=LANG[self.language]["full_name_label"]).pack(side="left", padx=(10, 5))
+        ctk.CTkEntry(info_frame, textvariable=name_var, width=180).pack(side="left", padx=5)
+    
+        ctk.CTkLabel(info_frame, text=LANG[self.language]["email_label"]).pack(side="left", padx=(10, 5))
+        ctk.CTkEntry(info_frame, textvariable=email_var, width=180).pack(side="left", padx=5)
 
+        # --- PHẦN 2: DANH SÁCH CHUYẾN ĐI (Scrollable) ---
+        ctk.CTkLabel(popup, text=LANG[self.language]["choose_trips_to_book"], font=("Arial", 14, "bold")).pack(anchor="w", padx=20, pady=(10, 0))
 
+        list_frame = ctk.CTkScrollableFrame(popup)
+        list_frame.pack(fill="both", expand=True, padx=10, pady=5)
+
+        trip_controls = [] # Danh sách lưu các biến điều khiển (checkbox, combobox) để lấy dữ liệu sau này
+
+        if not trips:
+            ctk.CTkLabel(list_frame, text=LANG[self.language]["no_trips_available"]).pack(pady=20)
+        else:
+            # Tiêu đề cột
+            header_frame = ctk.CTkFrame(list_frame, fg_color="transparent")
+            header_frame.pack(fill="x", pady=2)
+            ctk.CTkLabel(header_frame, text=LANG[self.language]["col_select"], width=40).pack(side="left", padx=5)
+            ctk.CTkLabel(header_frame, text=LANG[self.language]["col_trip_name"], anchor="w").pack(side="left", fill="x", expand=True, padx=5)
+            ctk.CTkLabel(header_frame, text=LANG[self.language]["col_quantity"], width=80).pack(side="right", padx=10)
+
+            for i, trip in enumerate(trips):
+                row_frame = ctk.CTkFrame(list_frame, fg_color="transparent")
+                row_frame.pack(fill="x", pady=2)
+
+                # 1. Checkbox chọn chuyến
+                is_selected = ctk.BooleanVar(value=False)
+                # Nếu trip_idx được truyền vào khớp với dòng này -> Tự động tích chọn
+                if trip_idx is not None and i == trip_idx:
+                    is_selected.set(True)
+
+                chk = ctk.CTkCheckBox(row_frame, text="", variable=is_selected, width=40)
+                chk.pack(side="left", padx=5)
+
+                # 2. Tên chuyến + Giá
+                trip_info = f"{trip.get('name', 'Unknown')} ({self.format_currency(trip.get('price', 0))})"
+                ctk.CTkLabel(row_frame, text=trip_info, anchor="w").pack(side="left", fill="x", expand=True, padx=5)
+
+                # 3. Chọn số lượng
+                qty_var = ctk.StringVar(value="1")
+                qty_cb = ctk.CTkComboBox(row_frame, variable=qty_var, values=[str(x) for x in range(1, 11)], width=70, state="readonly")
+                qty_cb.pack(side="right", padx=10)
+
+                # Lưu lại tham chiếu
+                trip_controls.append({
+                    "index": i,
+                    "trip_data": trip,
+                    "selected_var": is_selected,
+                    "qty_var": qty_var
+                })
+
+        # --- PHẦN 3: HÀM LƯU (Xử lý hàng loạt) ---
         def save_booking_action():
-            # Lưu thông tin đặt vé
+            # Thông tin khách
             name = name_var.get().strip()
             email = email_var.get().strip()
-            quantity_str = quantity_var.get()
 
-            if not name or not email or not quantity_str.isdigit():
-                messagebox.showerror(LANG[self.language]["error"], "Vui lòng nhập Tên, Email và chọn Số lượng vé hợp lệ!", parent=popup)
+            if not name or not email:
+                messagebox.showerror(
+                    LANG[self.language]["error"],
+                    "Vui lòng nhập Tên và Email người đặt!",
+                    parent=popup
+                )
                 return
-            quantity = int(quantity_str)
-            if quantity <= 0:
-                 messagebox.showerror(LANG[self.language]["error"], "Số lượng vé phải lớn hơn 0!", parent=popup)
-                 return
 
-            if save_booking_to_db(trip_idx, trip.get("name", ""), self.username, name, email, quantity):
-                messagebox.showinfo(LANG[self.language]["success"], "Đặt vé thành công!", parent=popup)
-                # Gửi thông báo cho admin (ví dụ)
-                add_notification("admin", f"User '{self.username}' vừa đặt {quantity} vé cho chuyến '{trip.get('name', '')}'.")
+            # Lọc các chuyến được tick
+            selected_items = [item for item in trip_controls
+                              if item["selected_var"].get()]
+
+            if not selected_items:
+                messagebox.showwarning(
+                    LANG[self.language]["error"],
+                    "Vui lòng chọn ít nhất một chuyến đi!",
+                    parent=popup
+                )
+                return
+
+            # Số lượng: lấy theo chuyến đầu tiên (coi như số lượng vé cho cả tour)
+            try:
+                qty = int(selected_items[0]["qty_var"].get())
+            except ValueError:
+                qty = 1
+
+            # Tạo danh sách chi tiết tour
+            details = []
+            total_price = 0
+
+            for item in selected_items:
+                t = item["trip_data"]
+                try:
+                    price = float(t.get("price", 0))
+                except (ValueError, TypeError):
+                    price = 0
+
+                total_price += price
+
+                details.append({
+                    "name": t.get("name", ""),
+                    "location": t.get("location", ""),
+                    "time": t.get("time", ""),
+                    "price": price,
+                    "category": t.get("category", ""),
+                    "lat": t.get("lat"),
+                    "lon": t.get("lon")
+                })
+
+            # Tên booking hiển thị trong danh sách vé
+            if len(selected_items) == 1:
+                tour_name = selected_items[0]["trip_data"].get("name", "Chuyến đi")
+            else:
+                tour_name = f"Tour {len(selected_items)} địa điểm"
+
+            # Lưu 1 booking duy nhất cho cả tour
+            if save_booking_to_db(
+                trip_index=-1,
+                trip_name=tour_name,
+                username=self.username,
+                customer_name=name,
+                email=email,
+                qty=qty,
+                details=details
+            ):
+                # Gửi thông báo cho admin (tuỳ bạn giữ hay bỏ)
+                add_notification(
+                    "admin",
+                    f"User '{self.username}' đặt {qty} vé cho {tour_name} ({len(details)} địa điểm)."
+                )
+
+                messagebox.showinfo(
+                    LANG[self.language]["success"],
+                    f"Đã đặt tour {len(details)} địa điểm thành công!",
+                    parent=popup
+                )
                 popup.destroy()
             else:
-                 messagebox.showerror(LANG[self.language]["error"], "Lưu vé thất bại. Vui lòng thử lại.", parent=popup)
+                messagebox.showerror(
+                    LANG[self.language]["error"],
+                    "Có lỗi xảy ra, không thể lưu vé.",
+                    parent=popup
+                )
 
-
-        ctk.CTkButton(popup, text="💾 " + LANG[self.language]["save"], command=save_booking_action, fg_color="#27ae60", hover_color="#2ecc71").pack(pady=20)
-
+        # Nút Lưu
+        ctk.CTkButton(popup, text="💾 " + LANG[self.language]["save"], command=save_booking_action, 
+                      fg_color="#27ae60", hover_color="#2ecc71", height=40, font=("Arial", 14, "bold")).pack(pady=15, padx=20, fill="x")
 
     def show_my_bookings(self):
-        # Hiển thị popup danh sách vé đã đặt (cho user hoặc admin)
-        if self.role == "admin":
-            bookings = get_all_bookings()
-        else:
-            bookings = get_bookings_by_user(self.username)
+        """
+        User thường: thấy vé của chính mình.
+        Admin: thấy tất cả vé và có nút xác nhận / từ chối.
+        """
+        # 1. Lấy dữ liệu
+        try:
+            if self.role == "admin":
+                bookings = get_all_bookings()
+            else:
+                bookings = get_bookings_by_user(self.username)
+        except Exception as e:
+            messagebox.showerror("Lỗi", f"Lỗi khi lấy dữ liệu vé: {e}", parent=self.master)
+            return
 
+        # 2. Tạo popup
         popup = ctk.CTkToplevel(self.master)
-        popup.title("Vé đã đặt")
-        popup.geometry("800x500") # Tăng chiều rộng
+        popup.title(LANG[self.language]["bookings_title"])
+        popup.geometry("800x550")
         popup.grab_set()
         popup.lift()
         popup.attributes("-topmost", True)
 
-        frame = ctk.CTkScrollableFrame(popup)
-        frame.pack(fill="both", expand=True, padx=10, pady=10)
+        ctk.CTkLabel(
+             popup,
+             text=LANG[self.language]["bookings_list_title"],
+             font=("Arial", 20, "bold")).pack(pady=10
+             )
+
+        list_frame = ctk.CTkScrollableFrame(popup, fg_color="#ecf0f1")
+        list_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
         if not bookings:
-            ctk.CTkLabel(frame, text="Chưa có vé nào!").pack(pady=20)
+            ctk.CTkLabel(list_frame,
+             text=LANG[self.language]["no_bookings"]).pack(pady=20)
         else:
-            for booking in bookings:
-                row_frame = ctk.CTkFrame(frame, fg_color="#eee" if booking[-1]=="Chờ xác nhận" else "#dff9fb") # Màu nền theo status
-                row_frame.pack(fill="x", pady=3)
+            # Nếu DB trả về tuple, map sang dict để dùng .get()
+            FIELD_NAMES = (
+                "id",           # 0
+                "username",     # 1
+                "trip_name",    # 2
+                "customer_name",# 3
+                "email",        # 4
+                "qty",          # 5
+                "status",       # 6
+                "created_at",   # 7
+            )
 
+            for row in bookings:
+                if isinstance(row, dict):
+                    bk = row
+                else:  # tuple / list
+                    bk = dict(zip(FIELD_NAMES, row))
+
+                booking_id = bk.get("id")
+                username_booking = bk.get("username", "")
+                trip_name  = bk.get("trip_name", bk.get("name", "Chuyến đi ?"))
+                customer   = bk.get("customer_name", bk.get("customer", ""))
+                email      = bk.get("email", "")
+                qty        = bk.get("qty", bk.get("quantity", 1))
+                status     = bk.get("status", "pending")
+                created_at = bk.get("created_at", "")
+                details    = bk.get("details", [])
+
+                # Khung mỗi vé
+                row_frame = ctk.CTkFrame(list_frame, fg_color="#ffffff", corner_radius=15)
+                row_frame.pack(fill="x", pady=8, padx=10)
+                row_frame.pack_propagate(False)
+
+                # Cột trái: thông tin
+                info_frame = ctk.CTkFrame(row_frame, fg_color="transparent")
+                info_frame.pack(side="left", fill="x", expand=True, padx=20, pady=10)
+
+                # Dòng username (in đậm)
+                ctk.CTkLabel(
+                    info_frame,
+                    text=username_booking or "user",
+                    font=("Arial", 14, "bold"),
+                    anchor="w"
+                ).pack(fill="x")
+
+                # Dòng chi tiết
+                detail_text = (
+                    f"{LANG[self.language]['label_customer']}: {customer} | Email: {email}\n"
+                    f"{LANG[self.language]['label_quantity']}: {qty} | "
+                    f"{LANG[self.language]['label_created_at']}: {created_at}"
+                )
+                ctk.CTkLabel(
+                    info_frame,
+                    text=detail_text,
+                    font=("Arial", 12),
+                    text_color="#555",
+                    justify="left",
+                    anchor="w"
+                ).pack(fill="x", pady=(4, 0))
+
+                # Cột phải: trạng thái + nút admin
+                right_frame = ctk.CTkFrame(row_frame, fg_color="transparent")
+                right_frame.pack(side="right", padx=20, pady=10)
+
+                # Label trạng thái
+                if status == "approved":
+                    status_text = LANG[self.language]["status_approved_text"]
+                    color = "#2ecc71"
+                elif status == "rejected":
+                    status_text = LANG[self.language]["status_rejected_text"]
+                    color = "#e74c3c"
+                else:
+                    status_text = LANG[self.language]["status_pending_text"]
+
+                    color = "#f1c40f"
+
+                if details:
+                    ctk.CTkButton(
+                        right_frame,
+                        text="🔍 Xem chi tiết",
+                        width=130,
+                        fg_color="#3498db",
+                        hover_color="#2980b9",
+                        command=lambda tn=trip_name, d=details: self.show_booking_details(tn, d)
+                    ).pack(pady=(5, 0))
+
+                ctk.CTkLabel(
+                    right_frame,
+                    text=status_text,
+                    font=("Arial", 12, "bold"),
+                    text_color="#fff",
+                    fg_color=color,
+                    corner_radius=10,
+                    width=130,
+                    height=32
+                ).pack(pady=(0, 5))
+
+                # Nếu là admin -> thêm nút hành động
                 if self.role == "admin":
-                    booking_id, trip_name, book_user, name, email, quantity, status = booking
-                    text = f"ID:{booking_id} | Chuyến: {trip_name} | User: {book_user} | Tên: {name} ({email}) | SL: {quantity} | Status: {status}"
-                    ctk.CTkLabel(row_frame, text=text, anchor="w", justify="left").pack(side=LEFT, padx=5, fill="x", expand=True)
+                    btn_frame = ctk.CTkFrame(right_frame, fg_color="transparent")
+                    btn_frame.pack(pady=(5, 0))
 
-                    # Chỉ hiển thị nút nếu đang chờ
-                    if status == 'Chờ xác nhận':
-                        ctk.CTkButton(row_frame, text="✅ Xác nhận", width=80, fg_color="#27ae60", hover_color="#1abc9c",
-                                      command=lambda bid=booking_id, user=book_user, tname=trip_name: (
-                                          update_booking_status(bid, "Đã xác nhận"),
-                                          add_notification(user, f"Vé #{bid} cho chuyến '{tname}' đã được xác nhận."), # Thông báo cho user
-                                          popup.destroy(), self.show_my_bookings() # Refresh
-                                      )).pack(side=RIGHT, padx=2)
-                    ctk.CTkButton(row_frame, text="❌ Xóa", width=60, fg_color="#e74c3c", hover_color="#c0392b",
-                                  command=lambda bid=booking_id: (
-                                      delete_booking(bid),
-                                      popup.destroy(), self.show_my_bookings() # Refresh
-                                  )).pack(side=RIGHT, padx=2)
-                else: # Giao diện cho User
-                    booking_id, trip_name, name, email, quantity, status = booking
-                    text = f"Vé #{booking_id} | Chuyến: {trip_name} | SL: {quantity} | Tình trạng: {status}"
-                    ctk.CTkLabel(row_frame, text=text, anchor="w").pack(side=LEFT, padx=10, pady=5)
+                    ctk.CTkButton(
+                        btn_frame,
+                        text=LANG[self.language]["btn_approve"],
+                        width=120,
+                        fg_color="#27ae60",
+                        hover_color="#2ecc71",
+                        command=lambda bid=booking_id, u=username_booking: self.change_booking_status(
+                            bid, "approved", u, popup
+                        )
+                    ).pack(pady=2)
+
+                    ctk.CTkButton(
+                        btn_frame,
+                        text=LANG[self.language]["btn_reject"],
+                        width=120,
+                        fg_color="#e74c3c",
+                        hover_color="#c0392b",
+                        command=lambda bid=booking_id, u=username_booking: self.change_booking_status(
+                            bid, "rejected", u, popup
+                        )
+                    ).pack(pady=2)
+
+        # Nút đóng
+        ctk.CTkButton(
+            popup,
+            text=LANG[self.language]["close"],
+            command=popup.destroy,
+            width=120,
+            fg_color="#bdc3c7",
+            hover_color="#95a5a6"
+        ).pack(pady=10)
 
     def open_suggestion_popup(self):
         """
         Tạo cửa sổ popup để người dùng CHỌN CÁC CHUYẾN ĐI và nhận gợi ý.
         """
         popup = ctk.CTkToplevel(self.master)
-        popup.title("Gợi ý Lộ trình Tối ưu (TSP cho Chuyến đi)")
+        popup.title(LANG[self.language]["suggestion_title"])
         popup.geometry("500x750")  # Tăng chiều cao
         popup.grab_set()
         popup.lift()
         popup.attributes("-topmost", True)
 
-        ctk.CTkLabel(popup, text="Tối ưu thứ tự Chuyến đi",
+        ctk.CTkLabel(popup, text=LANG[self.language]["suggestion_header"],
                      font=("Arial", 18, "bold")).pack(pady=10)
 
         # --- 1. KHUNG CHỌN CHUYẾN ĐI ---
-        ctk.CTkLabel(popup, text="1. Chọn các chuyến đi muốn tối ưu:",
+        ctk.CTkLabel(popup, text=LANG[self.language]["suggestion_step1"],
                      font=("Arial", 14, "bold")).pack(pady=(10, 5), anchor="w", padx=20)
 
         trip_select_frame = ctk.CTkScrollableFrame(popup, height=250)
@@ -1017,7 +1395,7 @@ class TravelApp:
         self.trip_selection_list = []
 
         if not all_trips:
-            ctk.CTkLabel(trip_select_frame, text="Lỗi: Không tải được data/QLDL.json").pack()
+            ctk.CTkLabel(trip_select_frame, text=LANG[self.language]["trip_list_not_found"]).pack()
         else:
             for trip in all_trips:
                  # Chỉ hiển thị các chuyến đi CÓ lat/lon
@@ -1034,28 +1412,130 @@ class TravelApp:
 
 
         # --- 2. KHUNG NHẬP NGÂN SÁCH ---
-        ctk.CTkLabel(popup, text="2. Nhập tổng ngân sách (VNĐ):",
+        ctk.CTkLabel(popup, text=LANG[self.language]["suggestion_step2"],
                      font=("Arial", 14, "bold")).pack(pady=(10, 0), anchor="w", padx=20)
 
-        budget_entry = ctk.CTkEntry(popup, placeholder_text="Bỏ trống nếu không giới hạn", width=250)
+        budget_entry = ctk.CTkEntry(popup, placeholder_text=LANG[self.language]["budget_placeholder"], width=250)
         budget_entry.pack(pady=5)
 
         # --- 3. KHUNG KẾT QUẢ ---
-        ctk.CTkLabel(popup, text="3. Kết quả tối ưu:",
+        ctk.CTkLabel(popup, text=LANG[self.language]["suggestion_step3"],
                      font=("Arial", 14, "bold")).pack(pady=(10, 0), anchor="w", padx=20)
 
         result_frame = ctk.CTkScrollableFrame(popup, height=200, fg_color="#f0f0f0")
         result_frame.pack(fill="x", expand=True, padx=20, pady=10)
 
-        ctk.CTkLabel(result_frame, text="Chọn chuyến đi, nhập ngân sách và nhấn 'Chạy'...",
+        ctk.CTkLabel(result_frame, text=LANG[self.language]["suggestion_result_hint"],
                      text_color="#555").pack(pady=20, padx=10)
 
         # --- NÚT CHẠY ---
-        run_btn = ctk.CTkButton(popup, text="🚀 Chạy Tối ưu",
+        run_btn = ctk.CTkButton(popup, text=LANG[self.language]["suggestion_run_button"],
                                 command=lambda: self.run_optimization(budget_entry, result_frame),
                                 fg_color="#27ae60", hover_color="#2ecc71",
                                 height=40, font=("Arial", 14, "bold"))
         run_btn.pack(pady=20)
+
+    def change_booking_status(self, booking_id, new_status, username_booking, popup_parent):
+        """
+        Admin đổi trạng thái vé và gửi thông báo cho user đã đặt.
+        booking_id: id trong DB (hoặc index, tùy cách bạn lưu)
+        new_status: 'approved' | 'rejected'
+        username_booking: username của người đặt
+        """
+        try:
+            # Tùy signature hàm DB của bạn, nếu khác thì sửa lại ở đây
+            if update_booking_status(booking_id, new_status):
+                # Gửi thông báo cho user
+                if new_status == "approved":
+                    msg = "Vé của bạn đã được xác nhận."
+                else:
+                    msg = "Vé của bạn đã bị từ chối."
+                add_notification(username_booking, msg)
+
+                messagebox.showinfo(LANG[self.language]["success"],
+                    LANG[self.language]["booking_update_success"],
+                    parent=popup_parent)
+                # Refresh lại danh sách vé
+                popup_parent.destroy()
+                self.show_my_bookings()
+            else:
+                messagebox.showerror(LANG[self.language]["error"],
+                     LANG[self.language]["booking_update_failed"],
+                     parent=popup_parent)
+        except Exception as e:
+            msg = f"Lỗi khi cập nhật trạng thái vé: {e}" if self.language == "vi" else f"Error while updating booking status: {e}"
+            messagebox.showerror(LANG[self.language]["error"], msg, parent=popup_parent)
+
+    def show_booking_details(self, tour_name, details):
+        """
+        Hiển thị popup chi tiết tour (các chặng trong details).
+        details là list các dict đã lưu trong bookings.json.
+        """
+        popup = ctk.CTkToplevel(self.master)
+        popup.title(f"Chi tiết - {tour_name}")
+        popup.geometry("550x450")
+        popup.grab_set()
+        popup.lift()
+        popup.attributes("-topmost", True)
+
+        ctk.CTkLabel(
+            popup,
+            text=f"Chi tiết tour: {tour_name}",
+            font=("Arial", 18, "bold")
+        ).pack(pady=10)
+
+        frame = ctk.CTkScrollableFrame(popup, fg_color="#ecf0f1")
+        frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+        if not details:
+            ctk.CTkLabel(
+                frame,
+                text="Tour này chưa có danh sách địa điểm.",
+                font=("Arial", 12),
+                text_color="#555"
+            ).pack(pady=20)
+        else:
+            total_price = 0
+            for i, d in enumerate(details, start=1):
+                name = d.get("name", "Chưa đặt tên")
+                loc  = d.get("location", "")
+                time = d.get("time", "")
+                price = d.get("price", 0) or 0
+                total_price += float(price)
+
+                text = f"{i}. {name}"
+                if loc:
+                    text += f" – {loc}"
+                if time:
+                    text += f"\n   🕒 {time}"
+                text += f"\n   💰 {self.format_currency(price)}"
+
+                card = ctk.CTkFrame(frame, fg_color="#ffffff", corner_radius=12)
+                card.pack(fill="x", padx=5, pady=5)
+                ctk.CTkLabel(
+                    card,
+                    text=text,
+                    justify="left",
+                    anchor="w",
+                    font=("Arial", 12),
+                ).pack(fill="x", padx=10, pady=8)
+
+            # Tổng tiền tour
+            ctk.CTkLabel(
+                popup,
+                text=f"Tổng chi phí các chặng: {self.format_currency(total_price)}",
+                font=("Arial", 13, "bold"),
+                text_color="#27ae60"
+            ).pack(pady=(0, 10))
+
+        ctk.CTkButton(
+            popup,
+            text="Đóng",
+            command=popup.destroy,
+            width=120,
+            fg_color="#bdc3c7",
+            hover_color="#95a5a6"
+        ).pack(pady=8)
 
     def run_optimization(self, budget_entry, result_frame):
         """
@@ -1071,32 +1551,40 @@ class TravelApp:
             budget_str = budget_entry.get()
             budget = float(budget_str) if budget_str and budget_str.strip() else None
         except ValueError:
-            messagebox.showerror("Lỗi", "Ngân sách phải là một con số!", parent=result_frame.master)
+            messagebox.showerror(LANG[self.language]["error"],
+                     LANG[self.language]["budget_must_be_number"],
+                     parent=result_frame.master)
             return
 
         # 3. (MỚI) Lọc các CHUYẾN ĐI đã được chọn
         selected_trips_for_optimizer = []
         if not hasattr(self, 'trip_selection_list'):
-             messagebox.showerror("Lỗi", "Không tìm thấy danh sách Chuyến đi. Vui lòng mở lại cửa sổ.", parent=result_frame.master)
+             messagebox.showerror(LANG[self.language]["error"],
+                     LANG[self.language]["trip_list_not_found"],
+                     parent=result_frame.master)
              return
 
         for (trip_var, trip) in self.trip_selection_list:
             if trip_var.get():  # Kiểm tra checkbox có được tick không
                 # Kiểm tra lại lat/lon (dù đã lọc khi hiển thị)
                 if 'lat' not in trip or 'lon' not in trip:
-                    messagebox.showerror("Lỗi Dữ Liệu",
-                                         f"Chuyến đi '{trip.get('name', 'N/A')}' bị thiếu 'lat' hoặc 'lon'.",
-                                         parent=result_frame.master)
+                    title = LANG[self.language]["data_error"]
+                    msg = LANG[self.language]["missing_lat_lon"].format(
+                        name=trip.get("name", "N/A")
+                    )
+                    messagebox.showerror(title, msg, parent=result_frame.master)
                     return
                 selected_trips_for_optimizer.append(trip)
 
         # 4. (MỚI) Kiểm tra số lượng
         if len(selected_trips_for_optimizer) < 2:
-            messagebox.showerror("Lỗi", "Vui lòng chọn ít nhất 2 chuyến đi để tối ưu.", parent=result_frame.master)
+            messagebox.showerror(LANG[self.language]["error"],
+                     LANG[self.language]["need_at_least_two_trips"],
+                     parent=result_frame.master)
             return
 
         # 5. Xây dựng ma trận từ các chuyến đi đã chọn
-        ctk.CTkLabel(result_frame, text="Đang xây dựng ma trận...").pack(pady=10)
+        ctk.CTkLabel(result_frame, text=LANG[self.language]["building_matrix"]).pack(pady=10)
         result_frame.master.update_idletasks()
 
         # 'pois' bây giờ là danh sách các chuyến đi đã chọn
@@ -1110,7 +1598,13 @@ class TravelApp:
                  try:
                      price_list.append(float(p['price']))
                  except (ValueError, TypeError):
-                     messagebox.showerror("Lỗi Dữ Liệu", f"Giá tiền của '{p['name']}' không hợp lệ: '{p['price']}'", parent=result_frame.master)
+                     title = LANG[self.language]["data_error"]
+                     msg = LANG[self.language]["invalid_price_value"].format(
+                         name=p.get("name", "N/A"),
+                         price=p.get("price", "")
+                     )
+                     messagebox.showerror(title, msg, parent=result_frame.master)
+
                      return
 
             poi_names = [p['name'] for p in pois]
@@ -1121,12 +1615,18 @@ class TravelApp:
 
 
         # 6. Chạy thuật toán GA
-        ctk.CTkLabel(result_frame, text=f"Đang tối ưu {n_points} chuyến đi...").pack(pady=10)
+        ctk.CTkLabel(
+            result_frame,
+            text=LANG[self.language]["optimizing_n_trips"].format(n=n_points)
+        ).pack(pady=10)
+
         result_frame.master.update_idletasks()
 
         # Thêm cảnh báo về thời gian
-        ctk.CTkLabel(result_frame, text="Lưu ý: Tối ưu này chỉ dựa trên khoảng cách và giá cả,\nKHÔNG xem xét ngày đi ('time').",
-                     font=("Arial", 10, "italic"), text_color="#7f8c8d").pack(pady=5)
+        ctk.CTkLabel(result_frame,
+             text=LANG[self.language]["optimize_note"],
+             font=("Arial", 10, "italic"),
+             text_color="#7f8c8d").pack(pady=5)
         result_frame.master.update_idletasks()
 
 
@@ -1166,32 +1666,40 @@ class TravelApp:
             for widget in result_frame.winfo_children():
                 widget.destroy()
 
-            ctk.CTkLabel(result_frame, text="Thứ tự chuyến đi tối ưu:",
+            ctk.CTkLabel(result_frame,
+                         text=LANG[self.language]["best_route_title"],
                          font=("Arial", 16, "bold")).pack(pady=(10, 5))
 
             # Hiển thị lộ trình
             route_str = ""
             for i, name in enumerate(ordered_route_names):
                 route_str += f"{i+1}. {name}\n"
-            route_str += f"→ Quay lại điểm bắt đầu."
+            route_str += LANG[self.language]["back_to_start"]
 
             ctk.CTkLabel(result_frame, text=route_str,
                          font=("Arial", 14), justify="left").pack(pady=10, padx=20, anchor="w")
 
             # Hiển thị chi phí và quãng đường
-            ctk.CTkLabel(result_frame, text=f"Tổng chi phí: {total_cost:,.0f} VNĐ",
+            ctk.CTkLabel(result_frame, text=f"{LANG[self.language]['total_cost_label']}: {total_cost:,.0f} VNĐ",
                          font=("Arial", 14, "bold"), text_color="#27ae60").pack(pady=5, anchor="w", padx=20)
-            ctk.CTkLabel(result_frame, text=f"Tổng quãng đường di chuyển: {total_dist:.2f} km",
+            ctk.CTkLabel(result_frame, text=f"{LANG[self.language]['total_distance_label']}: {total_dist:.2f} km",
                          font=("Arial", 14, "bold"), text_color="#2980b9").pack(pady=5, anchor="w", padx=20)
 
             if budget and total_cost > budget:
-                 ctk.CTkLabel(result_frame, text=f"⚠️ Cảnh báo: Chi phí vượt ngân sách!",
+                 ctk.CTkLabel(result_frame, text=LANG[self.language]["budget_warning"],
                          font=("Arial", 14, "bold"), text_color="#e74c3c").pack(pady=10, anchor="w", padx=20)
 
-            ctk.CTkLabel(result_frame, text="*Quãng đường tính theo đường chim bay giữa các địa điểm.",
+            ctk.CTkLabel(result_frame, text=ANG[self.language]["distance_note"],
                          font=("Arial", 10, "italic"), text_color="#7f8c8d").pack(pady=10, anchor="w", padx=20)
 
         except IndexError as e:
-             messagebox.showerror("Lỗi Index", f"Lỗi truy cập phần tử không hợp lệ trong lộ trình: {e}", parent=result_frame.master)
+             messagebox.showerror(
+                LANG[self.language]["index_error"],
+                f"Lỗi truy cập phần tử không hợp lệ trong lộ trình: {e}" if self.language == "vi"
+                else f"Invalid index in route: {e}",
+                parent=result_frame.master
+             )
         except Exception as e:
-            messagebox.showerror("Lỗi Thuật toán", f"Đã xảy ra lỗi khi chạy GA: {e}\nKiểm tra lại dữ liệu đầu vào và thuật toán.", parent=result_frame.master)
+            msg = LANG[self.language]["algorithm_error_detail"].format(e=e)
+            messagebox.showerror(LANG[self.language]["algorithm_error"], msg,
+                                 parent=result_frame.master)

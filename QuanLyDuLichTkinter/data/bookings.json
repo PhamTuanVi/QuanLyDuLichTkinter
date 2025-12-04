@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "username": "user1",
+        "trip_name": "Tour 3 địa điểm",
+        "customer_name": "Nguyễn Văn A",
+        "email": "a@gmail.com",
+        "qty": 2,
+        "status": "pending",
+        "created_at": "2025-12-03T21:30:00",
+        "details": [
+            {
+                "name": "Đà Lạt – Quảng trường Lâm Viên",
+                "location": "Đà Lạt",
+                "time": "08:00 - 10:00",
+                "price": 500000,
+                "lat": 11.941,
+                "lon": 108.438
+            },
+            {
+                "name": "LangBiang",
+                "location": "Lạc Dương",
+                "time": "10:30 - 12:00",
+                "price": 700000,
+                "lat": 12.027,
+                "lon": 108.425
+            },
+            {
+                "name": "Thung lũng Tình yêu",
+                "location": "Đà Lạt",
+                "time": "14:00 - 16:00",
+                "price": 400000,
+                "lat": 11.973,
+                "lon": 108.457
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "username": "admin",
+        "trip_name": "Tour 4 địa điểm",
+        "customer_name": "kd",
+        "email": "kd",
+        "qty": 1,
+        "status": "pending",
+        "created_at": "2025-12-04T08:26:27",
+        "details": [
+            {
+                "name": "Trekking Tà Năng",
+                "location": "Lâm Đồng",
+                "time": "2025-06-03 đến 2025-06-20",
+                "price": 3000000.0,
+                "category": "mountain",
+                "lat": 11.66,
+                "lon": 108.68
+            },
+            {
+                "name": "Khám phá rừng Bạch Mã",
+                "location": "Thừa Thiên Huế",
+                "time": "2025-07-01 đến 2025-07-03",
+                "price": 2700000.0,
+                "category": "forest",
+                "lat": 16.195,
+                "lon": 107.855
+            },
+            {
+                "name": "Cắm trại hồ Dầu Tiếng",
+                "location": "Tây Ninh",
+                "time": "2025-06-25 đến 2025-06-26",
+                "price": 1500000.0,
+                "category": "camping",
+                "lat": 11.3333,
+                "lon": 106.3333
+            },
+            {
+                "name": "Di tích địa đạo Củ Chi",
+                "location": "TP. HCM",
+                "time": "2025-06-12 đến 2025-06-13",
+                "price": 2200000.0,
+                "category": "tour",
+                "lat": 11.145,
+                "lon": 106.46
+            }
+        ]
+    }
+]

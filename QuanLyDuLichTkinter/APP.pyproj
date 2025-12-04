@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\accounts.json" />
+    <Content Include="data\bookings.json" />
     <Content Include="data\poi.json" />
     <Content Include="data\QLDL.json" />
     <Content Include="data\QLDL_timelines.json" />

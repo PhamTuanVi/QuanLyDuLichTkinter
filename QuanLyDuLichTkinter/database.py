@@ -3,7 +3,7 @@ import os
 import hashlib
 import sqlite3
 import sys
-import datetime
+from datetime import datetime
 
 def get_data_dir():
     if getattr(sys, 'frozen', False):
@@ -30,6 +30,8 @@ DATA_PATH = os.path.join(get_data_dir(), 'QLDL.json')
 ACCOUNT_PATH = os.path.join(get_data_dir(), 'accounts.json')
 TIMELINE_PATH = os.path.join(get_data_dir(), 'QLDL_timelines.json')
 NOTIFY_PATH = os.path.join(get_data_dir(), 'notifications.json')
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+BOOKINGS_PATH = os.path.join(DATA_DIR, "bookings.json")
 # POI_PATH = os.path.join(get_data_dir(), 'poi.json') # Không cần nữa nếu chỉ dùng QLDL.json
 
 
@@ -191,6 +193,23 @@ def save_timeline(trip_index, timeline, username=None, role=None):
                 return False
     return False
 
+def load_json(path, default=None):
+    if default is None:
+        default = []
+    if not os.path.exists(path):
+        return default
+    try:
+        with open(path, "r", encoding="utf8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError, UnicodeDecodeError):
+        return default
+
+
+def save_json(path, data):
+        ensure_dir(path)
+        with open(path, "w", encoding="utf8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+
 def get_trips_with_timeline_by_user(username=None, role=None):
     # Lấy danh sách chuyến đi kèm theo lịch trình của chúng
     trips = get_trips_by_user(username, role)
@@ -229,58 +248,51 @@ def init_db():
         print(f"Lỗi SQLite khi khởi tạo DB: {e}")
 
 
-def save_booking_to_db(trip_idx, trip_name, username, name, email, quantity):
-    # Lưu thông tin đặt vé vào database
-    try:
-        conn = sqlite3.connect("travel.db")
-        c = conn.cursor()
-        c.execute("INSERT INTO bookings (trip_idx, trip_name, username, name, email, quantity) VALUES (?, ?, ?, ?, ?, ?)",
-                  (trip_idx, trip_name, username, name, email, quantity))
-        conn.commit()
-        conn.close()
-        return True
-    except sqlite3.Error as e:
-        print(f"Lỗi SQLite khi lưu booking: {e}")
-        return False
+def save_booking_to_db(trip_index, trip_name, username,
+                       customer_name, email, qty,
+                       details=None):
+    """
+    details: có thể là list các điểm trong tour nhiều địa điểm.
+    """
+    bookings = load_json(BOOKINGS_PATH, [])
+
+    # Tạo id đơn giản: số lượng hiện tại + 1
+    new_id = (bookings[-1]["id"] + 1) if bookings else 1
+
+    booking = {
+        "id": new_id,
+        "username": username,
+        "trip_name": trip_name,
+        "customer_name": customer_name,
+        "email": email,
+        "qty": int(qty),
+        "status": "pending",
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+        "details": details or []      # <- chỗ lưu tour nhiều địa điểm
+    }
+
+    bookings.append(booking)
+    save_json(BOOKINGS_PATH, bookings)
+    return True
 
 def get_bookings_by_user(username):
-    # Lấy các booking của một user cụ thể
-    try:
-        conn = sqlite3.connect("travel.db")
-        c = conn.cursor()
-        c.execute("SELECT id, trip_name, name, email, quantity, status FROM bookings WHERE username = ?", (username,))
-        bookings = c.fetchall()
-        conn.close()
-        return bookings
-    except sqlite3.Error as e:
-        print(f"Lỗi SQLite khi lấy booking theo user: {e}")
-        return []
+    bookings = load_json(BOOKINGS_PATH, [])
+    return [b for b in bookings if b.get("username") == username]
 
 def get_all_bookings():
-    # Lấy tất cả booking (cho admin)
-    try:
-        conn = sqlite3.connect("travel.db")
-        c = conn.cursor()
-        c.execute("SELECT id, trip_name, username, name, email, quantity, status FROM bookings")
-        bookings = c.fetchall()
-        conn.close()
-        return bookings
-    except sqlite3.Error as e:
-        print(f"Lỗi SQLite khi lấy tất cả booking: {e}")
-        return []
+    return load_json(BOOKINGS_PATH, [])
 
-def update_booking_status(booking_id, status):
-    # Cập nhật trạng thái booking (admin dùng)
-    try:
-        conn = sqlite3.connect("travel.db")
-        c = conn.cursor()
-        c.execute("UPDATE bookings SET status = ? WHERE id = ?", (status, booking_id))
-        conn.commit()
-        conn.close()
-        return True
-    except sqlite3.Error as e:
-        print(f"Lỗi SQLite khi cập nhật status booking: {e}")
-        return False
+def update_booking_status(booking_id, new_status):
+    bookings = load_json(BOOKINGS_PATH, [])
+    updated = False
+    for b in bookings:
+        if b.get("id") == booking_id:
+            b["status"] = new_status
+            updated = True
+            break
+    if updated:
+        save_json(BOOKINGS_PATH, bookings)
+    return updated
 
 def delete_booking(booking_id):
     # Xóa booking (admin dùng)
@@ -352,3 +364,4 @@ def mark_notifications_read(username):
                 json.dump(noti, f, ensure_ascii=False, indent=4)
         except IOError as e:
              print(f"Lỗi khi đánh dấu notification đã đọc: {e}")
+

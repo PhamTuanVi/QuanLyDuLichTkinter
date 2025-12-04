@@ -848,6 +848,69 @@ class TravelApp:
                 popup.destroy()
                 self.show_trip_cards() # Refresh danh sách
 
+                # --- Nút Lưu ---
+        def save_trip_func():
+            # Validate input
+            if not all([name.get(), time.get(), location.get(), price.get()]):
+                messagebox.showerror(LANG[self.language]["error"], LANG[self.language]["fill_all"], parent=popup)
+                return
+            try:
+                price_value = float(price.get())
+            except ValueError:
+                messagebox.showerror(LANG[self.language]["error"], "Giá tiền phải là một con số!", parent=popup)
+                return
+
+            # Đổi về VNĐ nếu đang nhập USD
+            p = price_value
+            if currency_var.get() == "USD":
+                p = price_value * 24000
+
+            data = {
+                "name": name.get(),
+                "time": time.get(),
+                "location": location.get(),
+                "price": str(p),
+                "image": image_path.get(),
+                "category": category.get(),
+                "timeline": timeline
+            }
+
+            if edit_data and 'lat' in edit_data and 'lon' in edit_data:
+                data['lat'] = edit_data['lat']
+                data['lon'] = edit_data['lon']
+
+            success = False
+            if edit_index is not None:
+                # Sửa
+                if update_trip(edit_index, data, self.username, self.role):
+                    messagebox.showinfo(LANG[self.language]["success"], LANG[self.language]["update_success"], parent=popup)
+                    success = True
+                else:
+                    messagebox.showerror(LANG[self.language]["error"], LANG[self.language]["no_permission_edit"], parent=popup)
+            else:
+                # Thêm mới
+                save_trip(data, self.username)
+                messagebox.showinfo(LANG[self.language]["success"], LANG[self.language]["add_success"], parent=popup)
+                success = True
+
+            if success:
+                popup.destroy()
+                self.show_trip_cards()
+
+        # 🔹 NÚT LƯU (THÊM ĐOẠN NÀY)
+        btn_text = "💾 " + LANG[self.language]["save"]
+        ctk.CTkButton(
+            popup,
+            text=btn_text,
+            command=save_trip_func,
+            fg_color="#27ae60",
+            hover_color="#2ecc71",
+            height=40,
+            font=("Arial", 14, "bold"),
+            width=200
+        ).pack(pady=20)
+
+
     
 
     def select_dates_popup(self, time_var):

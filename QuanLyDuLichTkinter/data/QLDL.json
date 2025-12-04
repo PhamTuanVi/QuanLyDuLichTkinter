@@ -4,7 +4,7 @@
         "time": "2025-06-03 đến 2025-06-10",
         "location": "Lào Cai",
         "price": "5000000.0",
-        "image": "C:/Users/khanh/Downloads/crab.gif",
+        "image": "C:/Users/khanh/Downloads/FanSiPang.png",
         "category": "mountain",
         "timeline": [
             {
@@ -22,8 +22,8 @@
         "name": "Trekking Tà Năng",
         "time": "2025-06-03 đến 2025-06-20",
         "location": "Lâm Đồng",
-        "price": "3000000",
-        "image": "",
+        "price": "3000000.0",
+        "image": "C:/Users/khanh/Downloads/TaNang.jpg",
         "category": "mountain",
         "timeline": [],
         "created_by": "admin",

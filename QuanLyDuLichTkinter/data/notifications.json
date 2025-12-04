@@ -94,5 +94,29 @@
         "message": "User 'admin' đặt 1 vé cho Tour 4 địa điểm (4 địa điểm).",
         "read": false,
         "timestamp": "2025-12-04T08:26:27.919612"
+    },
+    {
+        "username": "admin",
+        "message": "User 'user1' đặt 1 vé cho Tour 3 địa điểm (3 địa điểm).",
+        "read": false,
+        "timestamp": "2025-12-04T08:32:32.663005"
+    },
+    {
+        "username": "admin",
+        "message": "User 'user4' đặt 1 vé cho Chinh phục Fansipan (1 địa điểm).",
+        "read": false,
+        "timestamp": "2025-12-04T08:33:28.156174"
+    },
+    {
+        "username": "admin",
+        "message": "User 'user4' đặt 1 vé cho Tour 4 địa điểm (4 địa điểm).",
+        "read": false,
+        "timestamp": "2025-12-04T08:33:38.266947"
+    },
+    {
+        "username": "user1",
+        "message": "Vé của bạn đã được xác nhận.",
+        "read": false,
+        "timestamp": "2025-12-04T08:33:54.545767"
     }
 ]
